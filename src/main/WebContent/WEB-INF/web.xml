@@ -41,18 +41,10 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
-	<!-- 当服务器已启动就需要使用到ioc容器的功能，所以启动的时候就需要初始化ioc容器对象，我们可以通过对servletcontext的监听器来实现 -->
-
-	<!-- spring已经提供了这么监听器，我们只需要对他进行注册 -->
 	<!-- 监听serviletcontext对象，application启动的时候自动ioc容器初始化  -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
-	<!-- ContextLoaderListener中初始化ioc容器， 自动读取bean所在文件的时候默认的路径是/WEB-INF/applicationContext.xml.  
-		我们可以通过以下修改来修改读取applicationContext.xml的路径  -->
-
-
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:application.xml</param-value>
