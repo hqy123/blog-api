@@ -12,4 +12,9 @@ public interface ArticleMapper {
 	public List<Article> getArticlesByCategory(int category);
 	
 	public Article getOneArticle(int id);
+
+	public List<Article> getArticleList();
+
+	public void uploadArticle(Article article);
+
 }

@@ -6,7 +6,7 @@ public class Article {
 	private String content;
 	private long published_time;
 	private int page_view;
-	private int category;
+	private int node;
 	
 	public int getPk_article_id() {
 		return pk_article_id;
@@ -38,11 +38,16 @@ public class Article {
 	public void setPage_view(int page_view) {
 		this.page_view = page_view;
 	}
-	public int getCategory() {
-		return category;
+	public int getNode() {
+		return node;
 	}
-	public void setCategory(int category) {
-		this.category = category;
+	public void setNode(int node) {
+		this.node = node;
+	}
+	@Override
+	public String toString() {
+		return "Article [pk_article_id=" + pk_article_id + ", title=" + title + ", content=" + content
+				+ ", published_time=" + published_time + ", page_view=" + page_view + ", node=" + node + "]";
 	}
 
 	

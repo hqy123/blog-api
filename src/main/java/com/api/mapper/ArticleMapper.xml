@@ -2,10 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.api.dao.ArticleMapper">
 	<select id="getArticlesByCategory" resultType="article"  parameterType="int">
-		select * from article where category = #{category}
+		select * from article where node = #{node}
 	</select>
 	
 	<select id="getOneArticle" resultType="article" parameterType="int">
 		select * from article where pk_article_id = #{id}
 	</select>
+	
+	<select id="getArticleList" resultType="article">
+		select * from article
+	</select>
+	
+	<insert id="uploadArticle" parameterType="article" useGeneratedKeys="true" keyProperty="pk_article_id">
+		insert into article (title,content,published_time,node) values (#{title},#{content},#{published_time},#{node})
+	</insert>
 </mapper>

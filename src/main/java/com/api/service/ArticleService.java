@@ -12,4 +12,8 @@ public interface ArticleService {
 
 	Article getOneArticle(int id);
 
+	List<Article> getArticleList();
+
+	void uploadArticle(Article article);
+
 }

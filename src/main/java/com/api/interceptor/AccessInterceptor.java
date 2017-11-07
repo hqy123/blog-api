@@ -24,6 +24,7 @@ public class AccessInterceptor implements HandlerInterceptor{
 	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
 		// TODO Auto-generated method stub
 		arg1.setHeader("Access-Control-Allow-Origin", "*");
+		arg1.addHeader("Access-Control-Allow-Methods", "GET,POST");
 		return true;
 	}
 

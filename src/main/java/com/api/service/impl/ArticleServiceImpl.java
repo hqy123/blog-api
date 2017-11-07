@@ -24,5 +24,15 @@ public class ArticleServiceImpl implements ArticleService {
 	public Article getOneArticle(int id) {
 		return articleMapper.getOneArticle(id);
 	}
+	@Override
+	public List<Article> getArticleList() {
+		return articleMapper.getArticleList();
+	}
+	@Override
+	public void uploadArticle(Article article) {
+		
+		articleMapper.uploadArticle(article);
+		
+	}
 
 }
