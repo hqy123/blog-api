@@ -8,18 +8,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.api.pojo.Article;
+import com.api.pojo.Node;
 import com.api.service.ArticleService;
+import com.api.service.NodeService;
 
 
 @Controller
 public class HomeController {
 	@Autowired
 	private ArticleService articleService;
+	@Autowired
+	private NodeService nodeService;
 	
 	@RequestMapping("/getArticles")
 	public @ResponseBody List<Article> getArticles(int category) {
 		return articleService.getArticles(category);
 		
+	}
+	
+	@RequestMapping("/getHomeNode")
+	public @ResponseBody List<Node> getHomeNode(){
+		
+		return nodeService.getNodeList();
 	}
 	
 	@RequestMapping("/getOneArticle")

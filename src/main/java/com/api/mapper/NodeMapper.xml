@@ -8,4 +8,8 @@
 	<select id="getNodeList" resultType="node">
 		select * from node	
 	</select>
+	
+	<delete id="delNodeById" parameterType="int" >
+		delete from node where pk_node_id = #{id}
+	</delete>
 </mapper>

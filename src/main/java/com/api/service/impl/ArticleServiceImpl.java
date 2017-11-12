@@ -34,5 +34,10 @@ public class ArticleServiceImpl implements ArticleService {
 		articleMapper.uploadArticle(article);
 		
 	}
+	@Override
+	public int delArticleById(int id) {
+		// TODO Auto-generated method stub
+		return articleMapper.delArticleById(id);
+	}
 
 }

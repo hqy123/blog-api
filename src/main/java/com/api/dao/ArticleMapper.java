@@ -17,4 +17,6 @@ public interface ArticleMapper {
 
 	public void uploadArticle(Article article);
 
+	public int delArticleById(int id);
+
 }

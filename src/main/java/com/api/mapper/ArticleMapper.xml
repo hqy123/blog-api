@@ -16,4 +16,8 @@
 	<insert id="uploadArticle" parameterType="article" useGeneratedKeys="true" keyProperty="pk_article_id">
 		insert into article (title,content,published_time,node) values (#{title},#{content},#{published_time},#{node})
 	</insert>
+	
+	<delete id="delArticleById" parameterType="int">
+		delete from article where pk_article_id = #{id}
+	</delete>
 </mapper>

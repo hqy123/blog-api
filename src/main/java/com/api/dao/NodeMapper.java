@@ -11,4 +11,6 @@ public interface NodeMapper {
 	public int addNode(String str);
 
 	public List<Node> getNodeList();
+
+	public int delNodeById(int id);
 }

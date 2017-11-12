@@ -16,4 +16,6 @@ public interface ArticleService {
 
 	void uploadArticle(Article article);
 
+	int delArticleById(int id);
+
 }
