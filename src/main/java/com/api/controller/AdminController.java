@@ -1,6 +1,7 @@
 package com.api.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.api.pojo.Article;
 import com.api.pojo.Node;
 import com.api.service.ArticleService;
@@ -39,11 +41,15 @@ public class AdminController {
 		String username = (String) map.get("username");
 		String password = (String) map.get("password");
 		Subject subject = SecurityUtils.getSubject();
-		
 		try {
 			subject.login(new UsernamePasswordToken(username, password));
 			String id = req.getSession().getId();
-			res.getWriter().write(id);
+			Map<String ,String> resMap = new HashMap<>();
+			resMap.put("seesionid", id);
+			resMap.put("username", username);
+			
+			String resmsg = JSONUtils.toJSONString(resMap);
+			res.getWriter().write(resmsg);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
