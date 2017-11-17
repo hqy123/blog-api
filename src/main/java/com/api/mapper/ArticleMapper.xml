@@ -1,23 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.api.dao.ArticleMapper">
-	<select id="getArticlesByCategory" resultType="article"  parameterType="int">
+
+
+	<select id="getArticlesByCategory" resultType="article"
+		parameterType="int">
 		select * from article where node = #{node}
 	</select>
-	
+
 	<select id="getOneArticle" resultType="article" parameterType="int">
 		select * from article where pk_article_id = #{id}
 	</select>
+
 	
-	<select id="getArticleList" resultType="article">
-		select * from article
-	</select>
-	
-	<insert id="uploadArticle" parameterType="article" useGeneratedKeys="true" keyProperty="pk_article_id">
-		insert into article (title,content,published_time,node) values (#{title},#{content},#{published_time},#{node})
+
+	<insert id="uploadArticle" parameterType="article"
+		useGeneratedKeys="true" keyProperty="pk_article_id">
+		insert into article
+		(title,content,published_time,node) values
+		(#{title},#{content},#{published_time},#{node})
 	</insert>
-	
+
 	<delete id="delArticleById" parameterType="int">
-		delete from article where pk_article_id = #{id}
+		delete from article
+		where pk_article_id = #{id}
 	</delete>
+	
+	<select id="getArticleList" resultMap="articleMap">
+		select * from article
+		a,node n where a.node = n.pk_node_id
+	</select> 
+	<resultMap type="article" id="articleMap">
+		<id column="pk_article_id" property="pk_article_id"></id>
+		<result column="title" property="title"></result>
+		<result column="content" property="content"></result>
+		<result column="published_time" property="published_time"></result>
+		<result column="page_view" property="page_view"></result>
+
+		<association property="n" javaType="com.api.pojo.Node">
+			<id column="pk_node_id" property="pk_node_id"></id>
+			<result column="nodeName" property="nodeName"></result>
+		</association>
+	</resultMap>
 </mapper>
