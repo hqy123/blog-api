@@ -14,17 +14,14 @@ public class NodeServiceImpl implements NodeService{
 	@Autowired
 	NodeMapper nodeMapper;
 	
-	@Override
 	public int addNode(String str) {
 		return nodeMapper.addNode(str);
 	}
 
-	@Override
 	public List<Node> getNodeList() {
 		return nodeMapper.getNodeList();
 	}
 
-	@Override
 	public int delNodeById(int id) {
 		return nodeMapper.delNodeById(id);
 	}

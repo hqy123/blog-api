@@ -15,26 +15,21 @@ public class ArticleServiceImpl implements ArticleService {
 	@Autowired
 	private  ArticleMapper articleMapper;
 
-	@Override
 	public List<Article> getArticles(int category) {
 		return articleMapper.getArticlesByCategory(category);
 		
 	}
-	@Override
 	public Article getOneArticle(int id) {
 		return articleMapper.getOneArticle(id);
 	}
-	@Override
 	public List<Article> getArticleList() {
 		return articleMapper.getArticleList();
 	}
-	@Override
 	public void uploadArticle(Article article) {
 		
 		articleMapper.uploadArticle(article);
 		
 	}
-	@Override
 	public int delArticleById(int id) {
 		// TODO Auto-generated method stub
 		return articleMapper.delArticleById(id);

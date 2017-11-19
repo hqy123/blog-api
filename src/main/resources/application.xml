@@ -56,14 +56,15 @@
 	</bean>
 
 
-	<!-- shiro start -->
+	<!-- shiro start
 	<bean id="dataSource2"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://127.0.0.1:3306/blog" />
 		<property name="username" value="root" />
 		<property name="password" value="root" />
-	</bean>
+		
+	</bean> -->
 	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
 
 	<bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"></bean>
@@ -71,7 +72,7 @@
 	<!-- 使用Shiro自带的JdbcRealm类 指定密码匹配所需要用到的加密对象 指定存储用户、角色、权限许可的数据源及相关查询语句 -->
 	<bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
 		<property name="permissionsLookupEnabled" value="true"></property>
-		<property name="dataSource" ref="dataSource2"></property>
+		<property name="dataSource" ref="dataSource"></property>
 		<property name="authenticationQuery" value="SELECT admin_pass FROM admin WHERE admin_name = ?"></property>
 	</bean>
 
